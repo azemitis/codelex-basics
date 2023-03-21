@@ -1,0 +1,8 @@
+/**
+Create a .csv file that stores (ID, name, surname, age) of multiple persons.
+*/
+
+ID,Name,Surname,Age
+1,John,Doe,10
+2,Jane,Doe,20
+3,Sam,Smith,40
