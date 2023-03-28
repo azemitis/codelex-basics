@@ -10,7 +10,7 @@
 function spinBoard(array $board, array $symbols): array
 {
     $newBoard = [];
-    for ($row = 0; $row < 3; $row++) {
+    for ($row = 0; $row  3; $row++) {
         $newBoard[$row] = [];
         for ($index = 0; $index < 4; $index++) {
             $symbolIndex = rand(0, count($symbols) - 1);
