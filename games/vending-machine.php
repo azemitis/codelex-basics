@@ -22,6 +22,11 @@ $wallet = 0;
 
 // Selecting product
 
+echo "MENU:\n";
+foreach ($products as $product) {
+    echo "{$product['title']}: " . "$" . number_format($product['price'] / 100, 2) . "\n";
+}
+
 $userInput = readline("Please select your product: ");
 
 $userInput = strtolower($userInput);
@@ -47,7 +52,7 @@ echo "Selected product: {$selectedProduct['title']}, price: {$selectedProduct['p
 
 // Coin validation
 
-$insertedCoins = readline("Insert Coin. Use ' ' seperator: ");
+$insertedCoins = readline("Insert Coins. Use ' ' separator: ");
 
 $coinsInput = explode(" ", $insertedCoins);
 
@@ -96,10 +101,24 @@ foreach ($coins as $coin) {
     }
 }
 
+//Returning coins
+
+$realCoins = [
+    200 => '2 dollar',
+    100 => '1 dollar',
+    50 => '50 cents',
+    20 => '20 cents',
+    10 => '10 cents',
+    5 => '5 cents',
+    2 => '2 cents',
+    1 => '1 cent'
+];
+
 echo "Please take your " . strtolower($selectedProduct['title']) . "!" . "\n";
 echo "Coins returned: ";
 foreach ($coinsToReturn as $coin => $times) {
-    echo "$coin ";
+    $coinName = $realCoins[$coin];
+    echo "$times:$coinName ";
 }
 
 echo "\n";
