@@ -15,7 +15,6 @@ Then display the contents of both arrays. To get the output to look like this, y
 Array 1: 45 87 39 32 93 86 12 44 75 -7
 Array 2: 45 87 39 32 93 86 12 44 75 50
 
-//todo check if an array contains a value user entered.
  * */
 
 $arrayOne = [];
@@ -25,7 +24,7 @@ for ($i = 0; $i < 10; $i++) {
 
 $arrayTwo = $arrayOne;
 
-$lastValue = readline("Enter a value(-7) to replace the last element of the array: ");
+$lastValue = readline("Enter a value (-7) to replace the last element of the array: ");
 
 for ($i = 0; $i < count($arrayTwo); $i++) {
     if ($i == count($arrayTwo) - 1) {

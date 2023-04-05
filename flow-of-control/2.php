@@ -1,13 +1,15 @@
 <?php
 
-$firstNumber = readline("Input the 1st number: ");
+$number = readline("Enter a number: ");
 
-$secondNumber = readline("Input the 2nd number: ");
+if ($number > 0){
+    echo "The number is positive";
+}
+elseif ($number < 0){
+    echo "The number is negative";
+}
+else {
+    echo "The number is zero";
+}
 
-$thirdNumber = readline("Input the 3rd number: ");
-
-$maxNumber = max($firstNumber, $secondNumber, $thirdNumber);
-
-echo "The largest number is: " . $maxNumber;
-
-//todo print the largest number
+//print if number is positive or negative

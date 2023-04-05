@@ -1,15 +1,35 @@
 <?php
 
-/**
-Write a program to compute the product of integers from 1 to 10 (i.e., 1×2×3×...×10), as an int.
- * Take note that it is the same as factorial of N.
- */
+/** Write a program that picks a random number from 1-100. Give the user a chance to guess it.
+If they get it right, tell them so. If their guess is higher than the number, say "Too high."
+If their guess is lower than the number, say "Too low." Then quit. (They don't get any more guesses for now.)
+
+I'm thinking of a number between 1-100.  Try to guess it.
 
 
-$product = 1;
+> 13
 
-for ($i = 1; $i <= 10; $i++) {
-    $product *= $i;
+Sorry, you are too low.  I was thinking of 34.
+
+I'm thinking of a number between 1-100.  Try to guess it.
+> 79
+
+Sorry, you are too high.  I was thinking of 51.
+
+I'm thinking of a number between 1-100.  Try to guess it.
+> 42
+
+You guessed it!  What are the odds?!?
+*/
+
+$randomNumber = rand(1, 100);
+
+$userInput = intval(readline("I'm thinking of a number between 1-100.  Try to guess it: "));
+
+if ($userInput == $randomNumber) {
+    echo "You guessed it!  What are the odds?!?\n";
+} elseif ($userInput > $randomNumber) {
+    echo "Sorry, you are too high.  I was thinking of $randomNumber.\n";
+} else {
+    echo "Sorry, you are too low.  I was thinking of $randomNumber.\n";
 }
-
-echo "The product of integers from 1 to 10 is $product";

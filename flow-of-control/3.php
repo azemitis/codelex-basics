@@ -1,15 +1,22 @@
 <?php
 
-$number = readline("Input the number: ");
+/**
+ * Write a program that reads an positive integer and count the number of digits the number has.
+ */
 
-if ($number > 0){
-    echo "The number is positive";
-}
-elseif ($number < 0){
+$number = readline("Enter a number: ");
+
+if ($number < 0){
     echo "The number is negative";
 }
-else {
+elseif ($number == 0){
     echo "The number is zero";
 }
-
-//todo print if number is positive or negative
+else{
+    $digitCount = strlen($number);
+    if ($digitCount === 1) {
+        echo "The number is positive and has 1 digit";
+    } else {
+        echo "The number is positive and has " . $digitCount . " digits";
+    }
+}

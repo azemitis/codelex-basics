@@ -1,18 +1,18 @@
 <?php
 
 /**
- *
- * Write a program to accept two integers and return true
- * if the either one is 15 or if their sum or difference is 15.
+ * Write a program called CheckOddEven which prints "Odd Number"
+ * if the int variable “number” is odd, or “Even Number” otherwise.
+ * The program shall always print “bye!” before exiting.
  */
 
-$integerOne = readline("Enter interger 1: ");
-$integerTwo = readline("Enter interger 2: ");
+$userInput = readline("Enter an integer: ");
 
-if ($integerOne == 15 || $integerTwo == 15 || $integerOne + $integerTwo == 15 ||
-    abs($integerOne - $integerTwo) == 15) {
-        echo "true";
-    }
-else {
-    echo "false";
+if ($userInput % 2 != 0) {
+    echo "Odd Number\n";
+} else {
+    echo "Even Number\n";
 }
+
+echo "bye!";
+

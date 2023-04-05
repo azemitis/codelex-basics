@@ -1,57 +1,31 @@
 <?php
 
 /**
- * Foo Corporation needs a program to calculate how much to pay their hourly employees.
- * The US Department of Labor requires that employees get paid time and a half for any hours over 40
- * that they work in a single week. For example, if an employee works 45 hours,
- * they get 5 hours of overtime, at 1.5 times their base pay.
- * The State of Massachusetts requires that hourly employees be paid at least $8.00 an hour.
- * Foo Corp requires that an employee not work more than 60 hours in a week.
- * Summary
+ * Write a program that calculates and displays a person's body mass index (BMI).
  *
- * An employee gets paid (hours worked) × (base pay), for each hour up to 40 hours.
- * For every hour over 40, they get overtime = (base pay) × 1.5.
- * The base pay must not be less than the minimum wage ($8.00 an hour). If it is, print an error.
- * If the number of hours is greater than 60, print an error message.
+ * A person's BMI is calculated with the following formula: BMI = weight x 703 / height ^ 2.
+ * Where weight is measured in pounds and height is measured in inches.
+ * Display a message indicating whether the person has optimal weight, is underweight, or is overweight.
+ * A sedentary person's weight is considered optimal if his or her BMI is between 18.5 and 25.
+ * If the BMI is less than 18.5, the person is considered underweight.
+ * If the BMI value is greater than 25, the person is considered overweight.
  *
- * Write a method that takes the base pay and hours worked as parameters, and prints the total pay or an error.
- * Write a main method that calls this method for each of these employees:
- * Employee    Base Pay    Hours Worked
- * Employee 1    $7.50    35
- * Employee 2    $8.20    47
- * Employee 3    $10.00    73
+ * Your program must accept metric units.
  */
 
-function calculatePay($basePay, $hoursWorked) {
-    $maxHours = 60;
-    $overtimeRate = 1.5;
-    $overtimeThreshold = 40;
-    $minimumWage = 8.00;
+function bodyMassIndex(int $weight, float $height): string
+{
+    $bmi = $weight / ($height ** 2);
 
-    if ($basePay < $minimumWage) {
-        return "Error: Base pay is less than minimum wage.";
+    if ($bmi < 18.5) {
+        return "Underweight";
+    } elseif ($bmi >= 18.5 && $bmi <= 25) {
+        return "Optimal weight";
+    } else {
+        return "Overweight";
     }
-
-    if ($hoursWorked > $maxHours) {
-        return "Error: Hours worked is greater than maximum allowed.";
-    }
-
-    if ($hoursWorked <= $overtimeThreshold) {
-        $pay = $hoursWorked * $basePay;
-    }
-
-    else {
-        $regularPay = $overtimeThreshold * $basePay;
-        $overtimePay = ($hoursWorked - $overtimeThreshold) * $basePay * $overtimeRate;
-        $pay = 'Total pay: $' . ($regularPay + $overtimePay);
-    }
-
-    return $pay;
 }
 
-echo calculatePay(7.50, 35) . "\n";
-echo calculatePay(8.20, 47) . "\n";
-echo calculatePay(10.00, 73) . "\n";
-
-
-
+echo "Person 1: " . bodyMassIndex(60, 2) . "\n";
+echo "Person 2: " . bodyMassIndex(80, 1.8) . "\n";
+echo "Person 3: " . bodyMassIndex(90, 1.6) . "\n";

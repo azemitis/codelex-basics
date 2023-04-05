@@ -1,25 +1,15 @@
 <?php
 
 /**
- * Write a program to produce the sum of 1, 2, 3, ..., to 100.
- * Store 1 and 100 in variables lower bound and upper bound, so that we can change their values easily.
- * Also compute and display the average. The output shall look like:
- * The sum of 1 to 100 is 5050
- * The average is 50.5
+Write a program to compute the product of integers from 1 to 10 (i.e., 1×2×3×...×10), as an int.
+ * Take note that it is the same as factorial of N.
  */
 
-$lowerBound = 1;
-$upperBound = 100;
 
-$array = [];
-$sum = 0;
+$product = 1;
 
-for ($i = $lowerBound; $i <= $upperBound; $i++) {
-    $array[] = $i;
-    $sum += $i;
+for ($i = 1; $i <= 10; $i++) {
+    $product *= $i;
 }
 
-$average = $sum / count($array);
-
-echo "The sum of $lowerBound to $upperBound is $sum\n";
-echo "The average is $average";
+echo "The product of integers from 1 to 10 is $product";
