@@ -17,34 +17,25 @@
 
 $string = strtolower(readline("Input a string: "));
 $ifOutput = "";
+$digits = "";
 $switchOutput = "";
 
 // "nested-if" statement
 
+$keypad = [' ' => "", 'abc' => 2, 'def' => 3, 'ghi' => 4, 'jkl' => 5,
+    'mno' => 6, 'pqrs' => 7, 'tuv' => 8, 'wxyz' => 9];
+
 for ($i = 0; $i < strlen($string); $i++) {
     $letter = $string[$i];
-    if ($letter == "a" || $letter == "b" || $letter == "c") {
-        $ifOutput .= "2";
-    } elseif ($letter == "d" || $letter == "e" || $letter == "f") {
-        $ifOutput .= "3";
-    } elseif ($letter == "g" || $letter == "h" || $letter == "i") {
-        $ifOutput .= "4";
-    } elseif ($letter == "j" || $letter == "k" || $letter == "l") {
-        $ifOutput .= "5";
-    } elseif ($letter == "m" || $letter == "n" || $letter == "o") {
-        $ifOutput .= "6";
-    } elseif ($letter == "p" || $letter == "q" || $letter == "r" || $letter == "s") {
-        $ifOutput .= "7";
-    } elseif ($letter == "t" || $letter == "u" || $letter == "v") {
-        $ifOutput .= "8";
-    } elseif ($letter == "w" || $letter == "x" || $letter == "y" || $letter == "z") {
-        $ifOutput .= "9";
-    } else {
-        $ifOutput .= " ";
+    foreach ($keypad as $key => $value) {
+        $letterPosition = strpos($key, $letter);
+        if ($letterPosition !== false) {
+            $digits .= str_repeat((string)$value, 1 + $letterPosition);
+        }
     }
 }
 
-echo $ifOutput . PHP_EOL;
+echo $digits . PHP_EOL;
 
 //"switch-case-default" statement.
 
