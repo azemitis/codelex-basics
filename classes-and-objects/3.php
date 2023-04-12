@@ -31,19 +31,19 @@
 
 class FuelGauge
 {
-    private $fuel;
+    private int $fuel;
 
-    public function __construct($fuel)
+    public function __construct(int $fuel)
     {
         $this->fuel = $fuel;
     }
 
-    public function getFuel()
+    public function getFuel(): int
     {
         return $this->fuel;
     }
 
-    public function addFuel($add)
+    public function addFuel(int $add): void
     {
         if ($this->fuel < 70)
         {
@@ -51,11 +51,11 @@ class FuelGauge
         }
     }
 
-    public function consumeFuel()
+    public function consumeFuel(int $amount):void
     {
-        if ($this->fuel > 0)
+        if ($this->fuel >= $amount)
         {
-            $this->fuel--;
+            $this->fuel -= $amount;
         }
     }
 }
@@ -65,18 +65,18 @@ class Odometer
     private $mileage;
     private $fuelGauge;
 
-    public function __construct($mileage, $fuelGauge)
+    public function __construct(int $mileage, FuelGauge $fuelGauge)
     {
         $this->mileage = $mileage;
         $this->fuelGauge = $fuelGauge;
     }
 
-    public function getMileage()
+    public function getMileage(): int
     {
         return $this->mileage;
     }
 
-    public function addMileage()
+    public function addMileage(): void
     {
         $this->mileage++;
 
@@ -87,11 +87,11 @@ class Odometer
 
         if ($this->mileage % 10 == 0)
         {
-            $this->fuelGauge->consumeFuel();
+            $this->fuelGauge->consumeFuel(1);
         }
     }
 
-    public function drive($distance)
+    public function drive(int $distance): void
     {
         for ($i = 0; $i < $distance; $i++)
         {
@@ -106,7 +106,7 @@ $odometer = new Odometer(0, $fuelGauge);
 $fuelGauge->addFuel(10);
 echo "Fuel: " . $fuelGauge->getFuel() . "\n";
 
-while ($fuelGauge->getFuel() > 0) {
-    $odometer->drive(10);
+while ($fuelGauge->getFuel() >= 1)
+{    $odometer->drive(10);
     echo "Mileage: " . $odometer->getMileage() . ", Fuel: " . $fuelGauge->getFuel() . "\n";
 }

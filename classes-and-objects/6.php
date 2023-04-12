@@ -16,24 +16,24 @@
 class EnergyDrinks
 {
     public int $surveyed;
-    private float $purchased_energy_drinks;
-    private float $prefer_citrus_drinks;
+    private float $purchasedEnergyDrinks;
+    private float $preferCitrusDrinks;
 
-    public function __construct(int $surveyed, float $purchased_energy_drinks, float $prefer_citrus_drinks)
+    public function __construct(int $surveyed, float $purchasedEnergyDrinks, float $preferCitrusDrinks)
     {
         $this->surveyed = $surveyed;
-        $this->purchased_energy_drinks = $purchased_energy_drinks;
-        $this->prefer_citrus_drinks = $prefer_citrus_drinks;
+        $this->purchasedEnergyDrinks = $purchasedEnergyDrinks;
+        $this->preferCitrusDrinks = $preferCitrusDrinks;
     }
 
-    public function calculate_energy_drinkers(): int
+    public function calculateEnergyDrinkers(): int
     {
-        return ($this->surveyed * $this->purchased_energy_drinks);
+        return ($this->surveyed * $this->purchasedEnergyDrinks);
     }
 
-    public function calculate_prefer_citrus(): int
+    public function calculatePreferCitrus(): int
     {
-        return ($this->surveyed * $this->purchased_energy_drinks * $this->prefer_citrus_drinks);
+        return ($this->surveyed * $this->purchasedEnergyDrinks * $this->preferCitrusDrinks);
     }
 }
 
@@ -41,7 +41,7 @@ $energyDrinks = new EnergyDrinks(12467, 0.14, 0.64);
 
 echo "Total number of people surveyed: " . $energyDrinks->surveyed . "." . "\n";
 
-echo "Approximately " . $energyDrinks->calculate_energy_drinkers() .
+echo "Approximately " . $energyDrinks->calculateEnergyDrinkers() .
     " bought at least one energy drink." ."\n";
-echo $energyDrinks->calculate_prefer_citrus($energyDrinks->surveyed) .
+echo $energyDrinks->calculatePreferCitrus() .
     " of those surveyed prefer citrus flavored energy drinks.";

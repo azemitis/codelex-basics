@@ -34,7 +34,7 @@ class Dog
     public $mother;
     public $father;
 
-    public function __construct(string $name, string $sex, $mother, $father)
+    public function __construct(string $name, string $sex, $mother = null, $father = null)
     {
         $this->name = $name;
         $this->sex = $sex;
@@ -65,14 +65,14 @@ class DogTest
     public static function main()
     {
         // Create dogs
-        $max = new Dog("Max", "male", null, null);
-        $rocky = new Dog("Rocky", "male", null, null);
-        $sparky = new Dog("Sparky", "male", null, null);
-        $buster = new Dog("Buster", "male", null, null);
-        $sam = new Dog("Sam", "male", null, null);
-        $lady = new Dog("Lady", "female", null, null);
-        $molly = new Dog("Molly", "female", null, null);
-        $coco = new Dog("Coco", "female", null, null);
+        $max = new Dog("Max", "male");
+        $rocky = new Dog("Rocky", "male");
+        $sparky = new Dog("Sparky", "male");
+        $buster = new Dog("Buster", "male");
+        $sam = new Dog("Sam", "male");
+        $lady = new Dog("Lady", "female");
+        $molly = new Dog("Molly", "female");
+        $coco = new Dog("Coco", "female");
 
         // Set mother and father
         $max->mother = $lady;
