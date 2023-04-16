@@ -32,11 +32,32 @@ class Movie
         $this->studio = $studio;
         $this->rating = $rating;
     }
+}
 
-    public static function getPG(array $movies): array
+class Box
+{
+    public function __construct(array $movies)
     {
-        $pgMovies = array();
-        foreach ($movies as $movie) {
+        foreach ($movies as $movie)
+        {
+            $this->addMovie($movie);
+        }
+    }
+
+    public function getMovies(): array
+    {
+        return $this->movies;
+    }
+
+    public function addMovie(Movie $movie): void
+    {
+        $this->movies[] = $movie;
+    }
+
+    public function getMoviesByRating(string $rating): array
+    {
+        $pgMovies = [];
+        foreach ($this->movies as $movie) {
             if (($movie->rating == 'PG')) {
                 $pgMovies[] = $movie;
             }
@@ -45,14 +66,15 @@ class Movie
     }
 }
 
-$movies = array(
+$box = new Box([
     new Movie('Casino Royale', 'Eon Productions', 'PG-13'),
     new Movie('Glass', 'Buena Vista International', 'PG-13'),
     new Movie('Spider-Man: Into the Spider-Verse', 'Columbia Pictures', 'PG'),
     new Movie('Spider-Man', 'Columbia Pictures', '')
+        ]
 );
 
-$pgMovies = Movie::getPG($movies);
+$pgMovies = $box->getMoviesByRating('PG');
 
 foreach ($pgMovies as $movie) {
     echo $movie->title . ', ' . $movie->studio . ', ' . $movie->rating . "\n";
